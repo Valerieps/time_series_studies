@@ -1,0 +1,18 @@
+https://www.mathworks.com/help/signal/examples/practical-introduction-to-frequency-domain-analysis.html
+
+- A FFT retorna um vetor de nºs complexos
+
+- frequency-domain e time-domain. Parece que todo esse procedimento da FFT é para transformar um no outro
+	- Enquanto time-domain analysis investiga como um sinal varia conforme o tempo, Frequency domain analysis investiga como a energia do sinal está distribuída ao longo de várias faixas de frequência
+	- Energia, no nosso caso eu imagino que seja os valores da série mesmo. Daí é essa energia que vamos querer decompor nas frequências
+	- a frequency-domain analysis tb não dá a informação de troca de fase (phase shift) das curvas de frequẽncia, essencial para decompor o sinal
+	- Um sinal pode ser convertido entre time e frequency domain sem perda de informação
+	- fft: time -> frequency
+	- ifft: frequency -> time
+
+- A quantidade de frequencias que forma um sinal pode ser infitnito
+	- o range de frequencias compositoras é chamado de "domain representation of a signal"
+
+- magnitude and phase of a FFT
+	- Para reconstruir cada sinal componente, é necessário saber a magnitude e a phase de cada frequência
+	- Com a decomposição em magnitude, podemos excluit sinais de baixa frequência, por exemplo, e recontruir a série
