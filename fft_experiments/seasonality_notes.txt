@@ -1,0 +1,7 @@
+Third, you can set up a table in which you have the mean of all the X measurements obtained in January, February, March,… Dec. (This is a particularly useful way to present results if your audience is not well versed in time series analysis).
+
+
+Fourth, you can obtain a periodogram (unsmoothed Fast Fourier Transform) or a power spectrum (smoothed FFT). (Data should be detrended prior to analysis.)
+
+
+Fifth, you can fit a harmonic function using sin(t) and cos(t) as predictors.
