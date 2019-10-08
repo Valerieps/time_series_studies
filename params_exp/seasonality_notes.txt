@@ -1,7 +1,39 @@
-Third, you can set up a table in which you have the mean of all the X measurements obtained in January, February, March,… Dec. (This is a particularly useful way to present results if your audience is not well versed in time series analysis).
+Automated window and lag selection for Kronos parametrization
+
+Experiment 1: Decompose the serie in the seasonality component than apply FFT over it in order to identify the signals that compose the seasonality. The strongest signals will be used for parametrization
+
+Experiment 2: the same, but with autocorrelation function
 
 
-Fourth, you can obtain a periodogram (unsmoothed Fast Fourier Transform) or a power spectrum (smoothed FFT). (Data should be detrended prior to analysis.)
+=========== EXPERIMENT 1: SEASONALITY ================
+Decomposing a TS in it's seasonality component:
+
+    Chapter 6 - book [name]
+    - There are several ways to decompose the series: classical way, X11, SEATS and STL
+    - Classical Way: admits only yearly granularity. Should not be used
+    - X11 and SEATS: Very robust to outliers, but admits only monthly and quaterly granularity
+    - STL: admits any graularity, but only additive models
+    
+    Additive x multiplicative models:
+    - Is additive if variance DO NOT change over time. Is multiplicative if it does.
+    - Heteroschedasticity: the property of a series of being multiplicative
+    - Therefore: if series is heteroschedastic, cannot use STL
+        - In that case, a log transformation is needed to make series additive
+    - Tests for HS: White Test and Breusch-Pagan Teste
+        - The return are statistics for F-test. p-value is observed
+    
+
+    *** STL model needs parametrization ***
+    Which defeats the purpose of automating automated window selection
 
 
-Fifth, you can fit a harmonic function using sin(t) and cos(t) as predictors.
+SEASONALITY DECOMPOSITION TECHNIQUES
+- Periodogram (unsmoothed Fast Fourier Transform)
+- Power Spectrum Analysis (smoothed FFT) (Data should be detrended prior to analysis.)
+- SingularSpectrum Analysis (paper sent by Thiago)
+- |?| Fit a harmonic function using sin(t) and cos(t) as predictor
+- Luis mentioned Wavelet
+
+
+
+=========== EXPERIMENT 2: ACF ================
